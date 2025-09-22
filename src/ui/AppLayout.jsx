@@ -6,16 +6,16 @@ import Loader from "./Loader";
 function AppLayout() {
   //دي عشان اشوف حاله ااداتا وصلت ولا لسا
   const navigation = useNavigation();
-  console.log(navigation);
   const isLoading = navigation.state === "loading";
   return (
-    <div className="layout">
+    <div className="grid h-screen grid-rows-[auto_1fr_auto]">
       {isLoading && <Loader />}
       <Header />
-      <main>
-        {" "}
-        <Outlet />
-      </main>
+      <div className="overflow-y-scroll">
+        <main className="mx-auto max-w-3xl">
+          <Outlet />
+        </main>
+      </div>
       <CartOverview />
     </div>
   );
