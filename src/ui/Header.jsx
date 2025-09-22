@@ -4,8 +4,9 @@ import Username from "../features/user/Username";
 
 function Header() {
   //لو مثلا في رقم انا عايزاه ومش موجود غي tqilwind بعمل كدا tracking-[20px]
+  //tracking=>letter spacing
   return (
-    <header className="bg-yellow-500 uppercase">
+    <header className="border-b border-stone-500 bg-yellow-500 px-4 py-3 uppercase">
       <Link to="/" className="tracking-widest">
         Fast React Pizza Co.
       </Link>
