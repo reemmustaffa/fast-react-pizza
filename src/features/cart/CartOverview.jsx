@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 function CartOverview() {
   return (
-    <div className="bg-stone-900 p-4 font-semibold uppercase text-stone-200">
+    <div className="bg-stone-900 px-4 py-4 text-sm font-semibold uppercase text-stone-200 sm:px-6 md:text-base">
       {/* space=>margin-left or marging the same as gap in d-flex */}
-      <p className="space-x-4 text-stone-300">
+      <p className="space-x-4 text-stone-300 sm:space-x-6">
         <span>23 pizzas</span>
         <span>$23.45</span>
       </p>
