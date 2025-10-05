@@ -117,6 +117,7 @@ function CreateOrder() {
 
         <div>
           <input type='hidden' name='cart' value={JSON.stringify(cart)} />
+          {/* السيرفر ممكن يخزن مكان الأوردر بدقة (مفيد للدليفري). عشان يحدد العنوان يدقه  */}
           <input
             type='hidden'
             name='position'
@@ -158,8 +159,7 @@ export async function action({ request }) {
   //هنا ببعت الاوردر ل اللينك اللي ب id دا
   //if everything is okey, create newoder and redirect
   const newOrder = await createOrder(order);
-  console.log(newOrder);
-  console.log(newOrder);
+  // console.log(newOrder);
 
   //DON NOT OVERUSE
   store.dispatch(clearCart());

@@ -39,6 +39,9 @@ const cartSlice = createSlice({
 
       item.quantity--;
       item.totalPrice = item.quantity * item.unitPrice;
+
+      //to get access to action creator in this reducer
+      if (item.quantity === 0) cartSlice.caseReducers.deleteItem(state, action);
     },
     clearCart(state) {
       state.cart = [];
@@ -56,8 +59,14 @@ export const {
 
 export default cartSlice.reducer;
 
+export const getCart = (state) => state.cart.cart;
+
 export const getTotalCartQuantity = (state) =>
   state.cart.cart.reduce((sum, cur) => sum + cur.quantity, 0);
 
 export const getTotalCartPrice = (state) =>
   state.cart.cart.reduce((sum, cur) => sum + cur.totalPrice, 0);
+
+//to get the current quantity of each pizza to display delete button
+export const getCurrentQuantity = (id) => (state) =>
+  state.cart.cart.find((item) => item.pizzaId === id)?.quantity ?? 0;

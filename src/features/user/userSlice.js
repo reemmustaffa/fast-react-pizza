@@ -49,6 +49,7 @@ const userSlice = createSlice({
   },
   //دي عشان استخدام الحاجات اللي راجعه من async func
   extraReducers: (builder) =>
+    // builder = object helper بيوفر طريقة سهلة لإضافة الحالات المختلفة للـ async thunk.
     //دي اول حاله state promise
     builder
       .addCase(fetchAddress.pending, (state, action) => {
@@ -61,7 +62,8 @@ const userSlice = createSlice({
       })
       .addCase(fetchAddress.rejected, (state, action) => {
         state.status = 'error';
-        state.error = action.error.message;
+        state.error =
+          'THere was a problem getting your address .Make sure to fill field!';
       }),
 });
 
